@@ -1,26 +1,184 @@
 @import "tailwindcss";
 
+@theme {
+  --color-bg: var(--bg);
+  --color-surface: var(--surface);
+  --color-surface-alt: var(--surface-alt);
+  --color-border: var(--border);
+  --color-primary: var(--primary);
+  --color-primary-dim: var(--primary-dim);
+  --color-accent: var(--accent);
+  --color-accent-dim: var(--accent-dim);
+  --color-text: var(--text);
+  --color-text-muted: var(--text-muted);
+  --color-green: var(--green);
+  --glow-intensity: var(--glow-intensity);
+  --glow-spread: var(--glow-spread);
+}
+
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --font-inter: "Inter", sans-serif;
+  --font-roboto-mono: "Roboto Mono", monospace;
+  
+  /* Light Mode Palette */
+  --bg: #f8fafc;
+  --surface: #ffffff;
+  --surface-alt: #f1f5f9;
+  --border: #e2e8f0;
+  --primary: #0284c7;
+  --primary-dim: #0369a1;
+  --accent: #7e22ce;
+  --accent-dim: #6b21a8;
+  --text: #0f172a;
+  --text-muted: #334155; /* Darkened for better readability and contrast */
+  --green: #059669; /* Slightly darker green in light mode */
+  --glow-intensity: 8%; /* Subtler glow in light mode */
+  --glow-spread: 5%;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+.dark {
+  /* Dark Mode Palette - Deeper for higher contrast */
+  --bg: #050a14;
+  --surface: #0a1120; /* Darker surface */
+  --surface-alt: #0f182b; /* Darker alt surface */
+  --border: #1e3056;
+  --primary: #00d4ff;
+  --primary-dim: #0090b0;
+  --accent: #7c3aed;
+  --accent-dim: #5b21b6;
+  --text: #f8fafc; /* Whiter text for higher contrast */
+  --text-muted: #94a3b8;
+  --green: #10b981;
+  --glow-intensity: 15%; /* Stronger glow in dark mode */
+  --glow-spread: 8%;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-inter);
+  background-color: var(--bg);
+  color: var(--text);
+  overflow-x: hidden;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: var(--bg);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--border);
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--primary-dim);
+}
+
+/* Gradient text utility */
+.gradient-text {
+  background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Glow effects leveraging CSS variables for dynamic Dark/Light adjustment */
+.glow-cyan {
+  box-shadow: 0 0 20px color-mix(in srgb, var(--primary) var(--glow-intensity), transparent), 0 0 40px color-mix(in srgb, var(--primary) var(--glow-spread), transparent);
+}
+.glow-purple {
+  box-shadow: 0 0 20px color-mix(in srgb, var(--accent) var(--glow-intensity), transparent), 0 0 40px color-mix(in srgb, var(--accent) var(--glow-spread), transparent);
+}
+
+/* Card styles */
+.card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); /* Smoother transition */
+}
+.card:hover {
+  border-color: color-mix(in srgb, var(--primary) 40%, transparent); /* More noticeable border hover */
+  box-shadow: 0 0 30px color-mix(in srgb, var(--primary) var(--glow-intensity), transparent); /* Standardized glow */
+  transform: translateY(-4px); /* Slightly stronger lift */
+}
+
+/* Section base */
+.section {
+  padding: 5rem 1.5rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Grid dot pattern background */
+.dot-grid {
+  background-image: radial-gradient(color-mix(in srgb, var(--primary) 6%, transparent) 1px, transparent 1px);
+  background-size: 32px 32px;
+}
+
+/* Mono font */
+.font-mono {
+  font-family: var(--font-roboto-mono);
+}
+
+/* Animated gradient border */
+@keyframes borderPulse {
+  0%, 100% { opacity: 0.5; }
+  50% { opacity: 1; }
+}
+
+.border-pulse {
+  animation: borderPulse 3s ease-in-out infinite;
+}
+
+/* Scanline effect for tech feel */
+@keyframes scanline {
+  0% { transform: translateY(-100%); }
+  100% { transform: translateY(100vh); }
+}
+
+/* Fade in animation */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in-up {
+  animation: fadeInUp 0.6s ease-out forwards;
+}
+
+/* Blinking cursor */
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+.cursor-blink::after {
+  content: "|";
+  animation: blink 1s step-end infinite;
+  color: var(--primary);
+}
+
+/* Noise texture overlay */
+.noise-overlay::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E");
+  pointer-events: none;
+  z-index: 0;
 }

@@ -5,33 +5,41 @@ import ProjectCard from "./ProjectCard";
 
 const projects = [
   {
-    title: "RentalKu",
+    title: "ARSULA - Museum Augmented Reality",
     description:
-      "A modern car rental and tour package booking platform built with Next.js and Tailwind CSS, focusing on industry-standard UI/UX with seamless booking flows and real-time availability.",
+      "Collaborated as the core IT team to design 3D models and develop the 'ARSULA' Augmented Reality application for Museum Sultan Sulaiman Badrul Alamsyah, bringing historical artifacts to life.",
     tags: [
-      { label: "Next.js" },
-      { label: "TypeScript" },
-      { label: "Tailwind CSS" },
-      { label: "Prisma" },
+      { label: "Augmented Reality" },
+      { label: "3D Modeling" },
+      { label: "UI/UX" },
     ],
-    imageSlot: "[SLOT_GAMBAR_PROJECT_RENTALKU_UI]",
-    githubUrl: "https://github.com/nabilanaufal12/rentalku-nextjs",
+    imageSlot: "[SLOT_GAMBAR_PROJECT_ARSULA]",
     type: "web" as const,
   },
   {
-    title: "Autonomous Surface Vehicle (ASV) Research",
+    title: "Kontes Kapal Indonesia (KKI) 2025 ASV",
     description:
-      "Robotics research focusing on Python-based backend logic and GNSS/RTK sensor integration for autonomous navigation. Developed as part of UKM Robotika UMRAH's preparation for KKI 2026.",
+      "Led the programming division to achieve Juara Harapan 1 at the National level. Developed the backend logic and automation for the Autonomous Surface Vehicle (ASV).",
     tags: [
       { label: "Python" },
-      { label: "GNSS/RTK" },
-      { label: "Computer Vision" },
-      { label: "ROS2" },
+      { label: "Robotics" },
+      { label: "Computer Vision / YOLO" },
     ],
-    imageSlot: "[SLOT_GAMBAR_PROJECT_ASV_TESTING]",
-    isPrivate: true,
+    imageSlot: "[SLOT_GAMBAR_PROJECT_KKI_2025]",
     type: "research" as const,
   },
+  {
+    title: "IoT Flood Early Warning Simulation",
+    description:
+      "Designed a programmatic logic and sensor wiring simulation for a flood early warning system. This was developed as a structured coursework project for the 'Internet Untuk Semua' class.",
+    tags: [
+      { label: "IoT" },
+      { label: "Microcontroller" },
+      { label: "System Design" },
+    ],
+    imageSlot: "[SLOT_GAMBAR_PROJECT_IOT_SIMULASI]",
+    type: "research" as const,
+  }
 ];
 
 export default function ProjectsSection() {

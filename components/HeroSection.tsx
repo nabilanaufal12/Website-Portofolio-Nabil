@@ -4,10 +4,6 @@ import { useRef, useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { ChevronDown, ArrowRight, Code2 } from "lucide-react";
 
-
-
-
-
 function TypewriterText({ texts }: { texts: string[] }) {
   const [currentTextIndex, setCurrentTextIndex] = useState(0);
   const [displayText, setDisplayText] = useState("");
@@ -32,7 +28,7 @@ function TypewriterText({ texts }: { texts: string[] }) {
           }
         }
       },
-      isDeleting ? 50 : 80
+      isDeleting ? 50 : 80,
     );
     return () => clearTimeout(timeout);
   }, [displayText, isDeleting, currentTextIndex, texts]);
@@ -77,9 +73,17 @@ export default function HeroSection() {
               <div className="w-2 h-2 rounded-full bg-green animate-pulse" />
             </div>
 
-            <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.1 }}>
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.1 }}
+            >
               <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold mb-4 tracking-tight">
-                Hi there, I&apos;m <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-accent">Nabil</span>.
+                Hi there, I&apos;m{" "}
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-accent">
+                  Nabil
+                </span>
+                .
               </h1>
             </motion.div>
 
@@ -92,8 +96,8 @@ export default function HeroSection() {
                 texts={[
                   "Web Developer",
                   "Robotics Programmer",
-                  "ASV Researcher",
-                  "Open Source Enthusiast",
+                  "AR & 3D Enthusiast",
+                  "Machine Learning Explorer",
                 ]}
               />
             </div>
@@ -103,7 +107,11 @@ export default function HeroSection() {
               to build future-ready solutions.
             </p>
 
-            <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.4 }}>
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.4 }}
+            >
               <p className="font-mono text-xs text-text-muted mt-8 mb-8 italic border-l-2 border-primary/30 pl-4 py-1">
                 &quot;Done is better than perfect, but keep improving.&quot;
               </p>
@@ -161,19 +169,26 @@ export default function HeroSection() {
 
             <div className="w-full h-full p-6 flex flex-col items-center justify-center text-center backdrop-blur-sm bg-bg/50">
               <div className="w-48 h-48 mb-6 rounded-full border border-primary/30 flex items-center justify-center overflow-hidden glow-cyan animate-pulse bg-surface">
-                 <img src="/ASV_NAVANTARA2.obj" alt="ASV Model Graphic" className="hidden" /> {/* Keep reference if user adds a real image later */}
-                 <div className="w-full h-full bg-gradient-to-br from-primary/20 to-accent/20 flex flex-col items-center justify-center">
-                    <Code2 size={48} className="text-primary mb-2 opacity-80" />
-                    <span className="font-mono text-xs text-primary font-bold tracking-widest uppercase">ASV SYS</span>
-                 </div>
+                <img
+                  src="/ASV_NAVANTARA2.obj"
+                  alt="ASV Model Graphic"
+                  className="hidden"
+                />{" "}
+                {/* Keep reference if user adds a real image later */}
+                <div className="w-full h-full bg-gradient-to-br from-primary/20 to-accent/20 flex flex-col items-center justify-center">
+                  <Code2 size={48} className="text-primary mb-2 opacity-80" />
+                  <span className="font-mono text-xs text-primary font-bold tracking-widest uppercase">
+                    ASV SYS
+                  </span>
+                </div>
               </div>
               <h3 className="text-xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-primary to-accent mb-2">
-                 ASV Navantara
+                ASV Navantara
               </h3>
               <p className="text-sm text-text-muted font-mono max-w-xs">
-                 Autonomous Surface Vehicle 
-                 <br />
-                 System Visualization
+                Autonomous Surface Vehicle
+                <br />
+                System Visualization
               </p>
             </div>
           </div>

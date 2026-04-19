@@ -44,9 +44,7 @@ export default function AboutSection() {
               01 / About
             </span>
           </div>
-          <h2 className="text-3xl md:text-4xl font-bold text-text">
-            Who I Am
-          </h2>
+          <h2 className="text-3xl md:text-4xl font-bold text-text">Who I Am</h2>
         </motion.div>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
@@ -64,10 +62,10 @@ export default function AboutSection() {
               <div className="absolute bottom-0 right-0 w-6 h-6 border-b-2 border-r-2 border-accent/70 z-10" />
 
               {/* Profile Image */}
-              <Image 
-                src="/profil.jpg" 
-                alt="Foto Profil Profesional Nabil" 
-                fill 
+              <Image
+                src="/profil.jpg"
+                alt="Foto Profil Profesional Nabil"
+                fill
                 className="object-cover object-center"
                 priority
               />
@@ -81,25 +79,25 @@ export default function AboutSection() {
           <div className="flex flex-col gap-6">
             <motion.div {...fadeIn} transition={{ duration: 0.6, delay: 0.1 }}>
               <p className="text-text-muted leading-relaxed text-base">
-                I&apos;m{" "}
-                <span className="text-text font-semibold">Nabil</span>, a 4th-semester
-                Informatics Engineering student at{" "}
+                I&apos;m <span className="text-text font-semibold">Nabil</span>,
+                a 4th-semester Informatics Engineering student at{" "}
                 <span className="text-primary font-semibold">
                   Universitas Maritim Raja Ali Haji (UMRAH)
                 </span>
-                , passionate about building elegant web applications and
-                developing intelligent robotics systems.
+                , maintaining a highly competitive academic standing with a 3.85
+                GPA.
               </p>
             </motion.div>
 
             <motion.div {...fadeIn} transition={{ duration: 0.6, delay: 0.2 }}>
               <p className="text-text-muted leading-relaxed text-base">
-                My work sits at the intersection of{" "}
-                <span className="text-text font-medium">software development</span> and{" "}
-                <span className="text-text font-medium">robotics engineering</span>. I
-                build full-stack web platforms that prioritize user experience,
-                while simultaneously leading R&D on autonomous systems for
-                national-level competitions.
+                Currently serving as the{" "}
+                <span className="text-text font-medium">
+                  Head of the Programmer Division at UKM Robotika
+                </span>
+                . My work sits at the intersection of software development,
+                intelligent robotics systems, and multimedia design, leading
+                technical trainings and delegating tasks for my team.
               </p>
             </motion.div>
 
@@ -109,9 +107,9 @@ export default function AboutSection() {
                 <span className="font-mono text-green text-sm">
                   Ubuntu 24.04 LTS
                 </span>{" "}
-                as my daily development environment — reflecting my commitment to
-                working closer to the metal, optimizing workflows, and embracing
-                the open-source ecosystem.
+                as my daily development environment — reflecting my commitment
+                to working closer to the metal, optimizing workflows, and
+                embracing the open-source ecosystem.
               </p>
             </motion.div>
 

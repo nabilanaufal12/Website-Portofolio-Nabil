@@ -13,23 +13,11 @@ interface Certificate {
 
 const certificates: Certificate[] = [
   {
-    title: "Web Development Bootcamp",
-    issuer: "Tech Academy",
-    date: "Aug 2024",
-    imageSlot: "[SLOT_GAMBAR_SERTIFIKAT_WEB_DEV]",
-    url: "#",
-  },
-  {
-    title: "Robotics & Automation Basics",
-    issuer: "Engineering Institute",
-    date: "Dec 2024",
-    imageSlot: "[SLOT_GAMBAR_SERTIFIKAT_ROBOTICS]",
-  },
-  {
-    title: "Advanced Data Structures & Algorithms",
-    issuer: "University Platform",
-    date: "Jan 2025",
-    imageSlot: "[SLOT_GAMBAR_SERTIFIKAT_DSA]",
+    title: "Financial Literacy 101",
+    issuer: "Dicoding Indonesia",
+    date: "2026",
+    imageSlot: "[SLOT_GAMBAR_SERTIFIKAT_DICODING_FINLIT]",
+    url: "#", // Masukkan link kredensial Dicoding
   },
 ];
 

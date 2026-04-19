@@ -16,7 +16,7 @@ interface ProjectCardProps {
   imageSlot: string;
   githubUrl?: string;
   liveUrl?: string;
-  type?: "web" | "research";
+  type?: "web" | "research" | "academic";
   isPrivate?: boolean;
 }
 
@@ -54,7 +54,11 @@ export default function ProjectCard({
                 : "text-primary border-primary/30 bg-primary/10"
             }`}
           >
-            {type === "research" ? "Research" : "Web App"}
+            {type === "research"
+              ? "Research"
+              : type === "academic"
+              ? "Academic"
+              : "Web App"}
           </span>
         </div>
 

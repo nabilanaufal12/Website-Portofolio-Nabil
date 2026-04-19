@@ -31,20 +31,18 @@ export default function CertificatesSection() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="mb-16"
+          className="mb-16 md:mb-20"
         >
-          <div className="flex items-center gap-3 mb-3">
+          <div className="flex items-center gap-3 mb-4">
             <div className="h-px w-8 bg-primary" />
             <span className="font-mono text-primary text-xs tracking-widest uppercase">
-              04 / Certificates
+              05 / Certificates
             </span>
           </div>
-          <div className="flex items-end justify-between gap-4 flex-wrap">
-            <h2 className="text-3xl md:text-4xl font-bold text-text">
-              Credentials & Achievements
-            </h2>
-          </div>
-          <p className="mt-3 text-text-muted max-w-lg">
+          <h2 className="text-3xl md:text-5xl font-bold text-text tracking-tight">
+            Credentials &amp; Achievements
+          </h2>
+          <p className="mt-4 text-text-muted text-base md:text-lg max-w-xl leading-relaxed">
             A showcase of completed courses, certifications, and recognized achievements.
           </p>
         </motion.div>

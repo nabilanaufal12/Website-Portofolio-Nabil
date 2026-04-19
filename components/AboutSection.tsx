@@ -37,14 +37,17 @@ export default function AboutSection() {
     <section id="about" className="py-24 px-6">
       <div className="max-w-6xl mx-auto">
         {/* Section header */}
-        <motion.div {...fadeIn} className="mb-16">
-          <div className="flex items-center gap-3 mb-3">
+        <motion.div {...fadeIn} className="mb-16 md:mb-20">
+          <div className="flex items-center gap-3 mb-4">
             <div className="h-px w-8 bg-primary" />
             <span className="font-mono text-primary text-xs tracking-widest uppercase">
               01 / About
             </span>
           </div>
-          <h2 className="text-3xl md:text-4xl font-bold text-text">Who I Am</h2>
+          <h2 className="text-3xl md:text-5xl font-bold text-text tracking-tight">Who I Am</h2>
+          <p className="mt-4 text-text-muted text-base md:text-lg max-w-xl leading-relaxed">
+            Background, focus, and what drives me to build.
+          </p>
         </motion.div>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">

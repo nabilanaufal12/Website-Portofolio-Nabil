@@ -60,17 +60,20 @@ export default function SkillsSection() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="mb-16"
+          className="mb-16 md:mb-20"
         >
-          <div className="flex items-center gap-3 mb-3">
+          <div className="flex items-center gap-3 mb-4">
             <div className="h-px w-8 bg-primary" />
             <span className="font-mono text-primary text-xs tracking-widest uppercase">
               02 / Skills
             </span>
           </div>
-          <h2 className="text-3xl md:text-4xl font-bold text-text">
+          <h2 className="text-3xl md:text-5xl font-bold text-text tracking-tight">
             Technical Stack
           </h2>
+          <p className="mt-4 text-text-muted text-base md:text-lg max-w-xl leading-relaxed">
+            Technologies and tools I work with daily.
+          </p>
         </motion.div>
 
         {/* Skills Grid */}

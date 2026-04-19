@@ -100,7 +100,7 @@ export default function ProjectCard({
         </div>
 
         {/* Actions */}
-        <div className="flex items-center gap-3 mt-auto pt-2 border-t border-border">
+        <div className="flex items-center gap-3 mt-auto pt-4 border-t border-border">
           {githubUrl && (
             <a
               href={githubUrl}

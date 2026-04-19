@@ -1,10 +1,10 @@
 import Navbar from "@/components/Navbar";
 import HeroSection from "@/components/HeroSection";
 import AboutSection from "@/components/AboutSection";
-import ExperienceSection from "@/components/ExperienceSection";
-import CertificatesSection from "@/components/CertificatesSection";
-import ProjectsSection from "@/components/ProjectsSection";
 import SkillsSection from "@/components/SkillsSection";
+import ExperienceSection from "@/components/ExperienceSection";
+import ProjectsSection from "@/components/ProjectsSection";
+import CertificatesSection from "@/components/CertificatesSection";
 import ContactSection from "@/components/ContactSection";
 
 export default function Home() {
@@ -13,10 +13,10 @@ export default function Home() {
       <Navbar />
       <HeroSection />
       <AboutSection />
-      <ExperienceSection />
-      <CertificatesSection />
-      <ProjectsSection />
       <SkillsSection />
+      <ExperienceSection />
+      <ProjectsSection />
+      <CertificatesSection />
       <ContactSection />
     </main>
   );

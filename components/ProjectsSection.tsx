@@ -52,23 +52,28 @@ export default function ProjectsSection() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="mb-16"
+          className="mb-16 md:mb-20"
         >
-          <div className="flex items-center gap-3 mb-3">
+          <div className="flex items-center gap-3 mb-4">
             <div className="h-px w-8 bg-primary" />
             <span className="font-mono text-primary text-xs tracking-widest uppercase">
-              03 / Projects
+              04 / Projects
             </span>
           </div>
           <div className="flex items-end justify-between gap-4 flex-wrap">
-            <h2 className="text-3xl md:text-4xl font-bold text-text">
-              Featured Work
-            </h2>
+            <div>
+              <h2 className="text-3xl md:text-5xl font-bold text-text tracking-tight">
+                Featured Work
+              </h2>
+              <p className="mt-4 text-text-muted text-base md:text-lg max-w-xl leading-relaxed">
+                Highlighted projects across web, robotics, and intelligent systems.
+              </p>
+            </div>
             <a
               href="https://github.com/nabilanaufal12"
               target="_blank"
               rel="noopener noreferrer"
-              className="font-mono text-xs text-text-muted hover:text-primary transition-colors flex items-center gap-1"
+              className="font-mono text-xs text-text-muted hover:text-primary transition-colors flex items-center gap-1 shrink-0"
             >
               View all on GitHub →
             </a>

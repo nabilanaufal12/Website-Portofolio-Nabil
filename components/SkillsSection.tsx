@@ -1,43 +1,60 @@
 "use client";
 
 import { motion } from "framer-motion";
+import { 
+  Code2, 
+  Cpu, 
+  Layers, 
+  Terminal, 
+  Layout, 
+  Box 
+} from "lucide-react";
 
 const skillCategories = [
   {
-    category: "Languages",
+    title: "Frontend Development",
+    icon: Layout,
+    skills: ["Next.js 15", "React 19", "TypeScript", "Tailwind CSS v4", "HTML/CSS"],
     color: "var(--primary)",
-    skills: [
-      { name: "Python", note: "Data Structures, Algorithms" },
-      { name: "JavaScript", note: "ES2022+" },
-      { name: "TypeScript", note: "Strict Mode" },
-    ],
   },
   {
-    category: "Frontend",
+    title: "Robotics & AI",
+    icon: Cpu,
+    skills: ["Python", "YOLO Framework", "Computer Vision", "Autonomous Systems", "Microcontrollers"],
     color: "var(--accent)",
-    skills: [
-      { name: "Next.js", note: "App Router" },
-      { name: "TailwindCSS", note: "v4" },
-      { name: "Three.js", note: "WebGL / 3D" },
-      { name: "Framer Motion", note: "Animations" },
-    ],
   },
   {
-    category: "OS & Tools",
+    title: "System & Design",
+    icon: Layers,
+    skills: ["UI/UX Design (Figma)", "3D Modeling", "System Analysis", "IoT Simulation"],
     color: "var(--green)",
-    skills: [
-      { name: "Ubuntu Linux", note: "24.04 LTS" },
-      { name: "Git", note: "Version Control" },
-      { name: "Docker", note: "Containerization" },
-    ],
+  },
+  {
+    title: "Tools & Environment",
+    icon: Terminal,
+    skills: ["Ubuntu 24.04 LTS", "Git / GitHub", "Docker", "VS Code"],
+    color: "var(--primary)",
   },
 ];
 
+const containerVariants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: { staggerChildren: 0.1 },
+  },
+};
+
+const itemVariants = {
+  hidden: { opacity: 0, y: 20 },
+  visible: { opacity: 1, y: 0 },
+};
+
 export default function SkillsSection() {
   return (
-    <section id="skills" className="py-24 px-6 bg-surface-alt">
+    <section id="skills" className="py-24 px-6 bg-bg">
       <div className="max-w-6xl mx-auto">
-        {/* Section header */}
+        {/* Section Header */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -48,104 +65,67 @@ export default function SkillsSection() {
           <div className="flex items-center gap-3 mb-3">
             <div className="h-px w-8 bg-primary" />
             <span className="font-mono text-primary text-xs tracking-widest uppercase">
-              04 / Skills
+              02 / Skills
             </span>
           </div>
           <h2 className="text-3xl md:text-4xl font-bold text-text">
-            Skills & Tech Stack
+            Technical Stack
           </h2>
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          {skillCategories.map((cat, catIndex) => (
-            <motion.div
-              key={cat.category}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: catIndex * 0.1 }}
-              className="card p-6"
-              style={{ borderColor: `${cat.color}20` }}
-            >
-              {/* Category header */}
-              <div className="flex items-center gap-2 mb-5">
-                <div
-                  className="h-1 w-6 rounded"
-                  style={{ backgroundColor: cat.color }}
-                />
-                <h3
-                  className="font-mono text-xs uppercase tracking-widest font-bold"
-                  style={{ color: cat.color }}
-                >
-                  {cat.category}
-                </h3>
-              </div>
-
-              {/* Skills */}
-              <div className="flex flex-col gap-3">
-                {cat.skills.map((skill, skillIndex) => (
-                  <motion.div
-                    key={skill.name}
-                    initial={{ opacity: 0, x: -10 }}
-                    whileInView={{ opacity: 1, x: 0 }}
-                    viewport={{ once: true }}
-                    transition={{
-                      duration: 0.4,
-                      delay: catIndex * 0.1 + skillIndex * 0.07,
-                    }}
-                    className="group flex items-center justify-between p-3 rounded-xl bg-bg border border-border hover:border-opacity-50 transition-all"
-                    style={
-                      {
-                        "--hover-border": cat.color,
-                      } as React.CSSProperties
-                    }
-                    onMouseEnter={(e) => {
-                      (e.currentTarget as HTMLElement).style.borderColor =
-                        `${cat.color}40`;
-                    }}
-                    onMouseLeave={(e) => {
-                      (e.currentTarget as HTMLElement).style.borderColor = "";
-                    }}
-                  >
-                    <span className="text-sm font-semibold text-text">
-                      {skill.name}
-                    </span>
-                    <span className="font-mono text-[10px] text-text-muted">
-                      {skill.note}
-                    </span>
-                  </motion.div>
-                ))}
-              </div>
-            </motion.div>
-          ))}
-        </div>
-
-        {/* Bottom belt of logos/icons strip */}
+        {/* Skills Grid */}
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="visible"
           viewport={{ once: true }}
-          transition={{ duration: 0.6, delay: 0.4 }}
-          className="mt-10 p-5 rounded-2xl border border-border bg-surface flex flex-wrap items-center justify-center gap-6"
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6"
         >
-          {[
-            "Next.js",
-            "TypeScript",
-            "Python",
-            "Three.js",
-            "Tailwind CSS",
-            "Framer Motion",
-            "Git",
-            "Docker",
-            "Ubuntu",
-          ].map((tech) => (
-            <span
-              key={tech}
-              className="font-mono text-xs text-text-muted hover:text-text transition-colors cursor-default"
-            >
-              {tech}
-            </span>
-          ))}
+          {skillCategories.map((category) => {
+            const Icon = category.icon;
+            return (
+              <motion.div
+                key={category.title}
+                variants={itemVariants}
+                className="card p-6 flex flex-col gap-4 border-l-2"
+                style={{ borderLeftColor: category.color }}
+              >
+                <div className="flex items-center gap-3">
+                  <div className="p-2 rounded-lg bg-surface-alt">
+                    <Icon size={20} style={{ color: category.color }} />
+                  </div>
+                  <h3 className="font-bold text-sm text-text">
+                    {category.title}
+                  </h3>
+                </div>
+
+                <div className="flex flex-wrap gap-2 mt-2">
+                  {category.skills.map((skill) => (
+                    <span
+                      key={skill}
+                      className="px-2.5 py-1 rounded-md bg-surface-alt border border-border text-[11px] font-mono text-text-muted hover:border-primary/50 hover:text-primary transition-colors cursor-default"
+                    >
+                      {skill}
+                    </span>
+                  ))}
+                </div>
+              </motion.div>
+            );
+          })}
+        </motion.div>
+
+        {/* OS Focus Note */}
+        <motion.div
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true }}
+          transition={{ delay: 0.5 }}
+          className="mt-12 p-4 rounded-xl border border-dashed border-border bg-surface/30 flex items-center justify-center gap-3"
+        >
+          <Box size={16} className="text-primary" />
+          <p className="text-xs font-mono text-text-muted">
+            Environment: Optimized for <span className="text-primary">Ubuntu 24.04 LTS</span> development.
+          </p>
         </motion.div>
       </div>
     </section>

@@ -20,7 +20,7 @@ export function ThemeProvider({
   }
 
   return (
-    <NextThemesProvider attribute="class" defaultTheme="system" enableSystem>
+    <NextThemesProvider attribute="class" defaultTheme="light" enableSystem={false}>
       {children}
     </NextThemesProvider>
   );

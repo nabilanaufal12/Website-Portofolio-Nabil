@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import { ExternalLink, Github, Image as ImageIcon, ArrowRight, Lock } from "lucide-react";
+import Image from "next/image";
 
 interface Tag {
   label: string;
@@ -33,25 +34,23 @@ export default function ProjectCard({
 }: ProjectCardProps) {
   return (
     <motion.div
-      initial={{ opacity: 0, y: 30 }}
+      initial={{ opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
-      transition={{ duration: 0.6, delay: index * 0.15 }}
+      transition={{ duration: 0.7, delay: index * 0.12 }}
       className="card group flex flex-col overflow-hidden"
     >
       {/* Image slot */}
-      <div className="relative aspect-[16/9] bg-bg overflow-hidden border-b border-border">
-        {/* Corner accents */}
-        <div className="absolute top-0 left-0 w-5 h-5 border-t border-l border-primary/50 z-10" />
-        <div className="absolute top-0 right-0 w-5 h-5 border-t border-r border-primary/50 z-10" />
-
+      <div className="relative aspect-[16/9] bg-surface-alt overflow-hidden">
         {/* Type badge */}
         <div className="absolute top-3 left-3 z-10">
           <span
-            className={`font-mono text-[10px] tracking-wider px-2 py-1 rounded-full border ${
+            className={`text-xs font-medium tracking-wide px-3 py-1 rounded-full ${
               type === "research"
-                ? "text-accent border-accent/30 bg-accent/10"
-                : "text-primary border-primary/30 bg-primary/10"
+                ? "text-accent bg-accent/10 border border-accent/20"
+                : type === "academic"
+                ? "text-primary bg-primary/10 border border-primary/20"
+                : "text-accent-warm bg-accent-warm/10 border border-accent-warm/20"
             }`}
           >
             {type === "research"
@@ -62,24 +61,30 @@ export default function ProjectCard({
           </span>
         </div>
 
-        {/* Slot placeholder */}
-        <div className="absolute inset-0 flex items-center justify-center flex-col gap-3">
-          <div className="w-14 h-14 rounded-xl bg-gradient-to-br from-primary/10 to-accent/10 border border-dashed border-border flex items-center justify-center group-hover:border-primary/30 transition-colors">
-            <ImageIcon size={24} className="text-primary/30 group-hover:text-primary/60 transition-colors" />
+        {/* Image or placeholder */}
+        {imageSlot && !imageSlot.startsWith("[") ? (
+          <Image
+            src={imageSlot}
+            alt={title}
+            fill
+            className="object-cover object-center group-hover:scale-105 transition-transform duration-500"
+          />
+        ) : (
+          <div className="absolute inset-0 flex items-center justify-center flex-col gap-3">
+            <div className="w-14 h-14 rounded-2xl bg-border/30 flex items-center justify-center group-hover:bg-border/50 transition-colors duration-300">
+              <ImageIcon size={22} className="text-text-muted/40 group-hover:text-text-muted/60 transition-colors duration-300" />
+            </div>
           </div>
-          <p className="font-mono text-[11px] text-text-muted tracking-wider text-center px-6">
-            {imageSlot}
-          </p>
-        </div>
+        )}
 
-        {/* Gradient overlay on hover */}
-        <div className="absolute inset-0 bg-gradient-to-t from-surface/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
+        {/* Subtle hover overlay */}
+        <div className="absolute inset-0 bg-gradient-to-t from-surface/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
       </div>
 
       {/* Content */}
-      <div className="flex flex-col flex-1 p-5 gap-4">
-        <div className="mb-2">
-          <h3 className="text-xl font-bold text-text mb-2 group-hover:text-primary transition-colors">
+      <div className="flex flex-col flex-1 p-6 gap-4">
+        <div className="mb-1">
+          <h3 className="text-lg font-serif font-bold text-text mb-2 group-hover:text-accent-warm transition-colors duration-300">
             {title}
           </h3>
           <p className="text-sm text-text-muted leading-relaxed">
@@ -92,7 +97,7 @@ export default function ProjectCard({
           {tags.map((tag) => (
             <span
               key={tag.label}
-              className="font-mono text-[11px] px-2.5 py-1 rounded-lg bg-primary/10 border border-primary/20 text-primary-dim dark:text-primary/90"
+              className="text-xs font-medium px-3 py-1.5 rounded-full bg-surface-alt border border-border text-text-muted"
             >
               {tag.label}
             </span>
@@ -106,7 +111,7 @@ export default function ProjectCard({
               href={githubUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center gap-1.5 text-xs text-text-muted hover:text-text transition-colors"
+              className="flex items-center gap-1.5 text-xs font-medium text-text-muted hover:text-text transition-colors duration-300"
             >
               <Github size={14} />
               Source
@@ -115,7 +120,7 @@ export default function ProjectCard({
           {!githubUrl && isPrivate && (
             <span className="flex items-center gap-1.5 text-xs text-text-muted cursor-default select-none">
               <Lock size={13} className="text-accent/70" />
-              <span className="font-mono text-accent/70">Private Repo</span>
+              <span className="text-accent/70 font-medium">Private Repo</span>
             </span>
           )}
           {liveUrl && (
@@ -123,13 +128,13 @@ export default function ProjectCard({
               href={liveUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center gap-1.5 text-xs text-text-muted hover:text-primary transition-colors"
+              className="flex items-center gap-1.5 text-xs font-medium text-text-muted hover:text-accent-warm transition-colors duration-300"
             >
               <ExternalLink size={14} />
               Live Demo
             </a>
           )}
-          <span className="ml-auto flex items-center gap-1 text-xs text-primary/60 group-hover:text-primary transition-colors">
+          <span className="ml-auto flex items-center gap-1 text-xs font-medium text-text-muted/60 group-hover:text-accent-warm transition-colors duration-300">
             View Details
             <ArrowRight size={12} />
           </span>

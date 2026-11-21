@@ -1,45 +1,8 @@
 "use client";
 
-import { useRef, useEffect, useState } from "react";
 import { motion } from "framer-motion";
-import { ChevronDown, ArrowRight, Code2 } from "lucide-react";
-
-function TypewriterText({ texts }: { texts: string[] }) {
-  const [currentTextIndex, setCurrentTextIndex] = useState(0);
-  const [displayText, setDisplayText] = useState("");
-  const [isDeleting, setIsDeleting] = useState(false);
-
-  useEffect(() => {
-    const current = texts[currentTextIndex];
-    const timeout = setTimeout(
-      () => {
-        if (!isDeleting) {
-          if (displayText.length < current.length) {
-            setDisplayText(current.slice(0, displayText.length + 1));
-          } else {
-            setTimeout(() => setIsDeleting(true), 1800);
-          }
-        } else {
-          if (displayText.length > 0) {
-            setDisplayText(current.slice(0, displayText.length - 1));
-          } else {
-            setIsDeleting(false);
-            setCurrentTextIndex((prev) => (prev + 1) % texts.length);
-          }
-        }
-      },
-      isDeleting ? 50 : 80,
-    );
-    return () => clearTimeout(timeout);
-  }, [displayText, isDeleting, currentTextIndex, texts]);
-
-  return (
-    <span className="text-primary font-mono">
-      {displayText}
-      <span className="animate-pulse">|</span>
-    </span>
-  );
-}
+import { ChevronDown, ArrowRight, Mail } from "lucide-react";
+import Image from "next/image";
 
 export default function HeroSection() {
   const handleScrollDown = () => {
@@ -49,182 +12,170 @@ export default function HeroSection() {
   return (
     <section
       id="hero"
-      className="relative min-h-screen flex items-center overflow-hidden dot-grid"
+      className="relative min-h-screen flex items-center overflow-hidden"
     >
-      {/* Background gradient */}
+      {/* Subtle background warmth */}
       <div className="absolute inset-0 pointer-events-none">
-        <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-primary/5 rounded-full blur-3xl" />
-        <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-accent/5 rounded-full blur-3xl" />
+        <div className="absolute top-1/3 right-0 w-[500px] h-[500px] bg-accent-warm/5 rounded-full blur-[120px]" />
+        <div className="absolute bottom-1/4 left-0 w-[400px] h-[400px] bg-accent/5 rounded-full blur-[100px]" />
       </div>
 
-      <div className="relative z-10 max-w-6xl mx-auto px-6 w-full py-24 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-        {/* Left - Text Content */}
+      <div className="relative z-10 max-w-6xl mx-auto px-6 md:px-8 w-full py-28 grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+        {/* Left — Text Content */}
         <div>
           <motion.div
-            initial={{ opacity: 0, y: 30 }}
+            initial={{ opacity: 0, y: 24 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
+            transition={{ duration: 0.7, ease: "easeOut" }}
           >
-            <div className="flex items-center gap-2 mb-6">
-              <div className="h-px w-8 bg-primary" />
-              <span className="font-mono text-primary text-xs tracking-widest uppercase">
+            {/* Availability badge */}
+            <div className="flex items-center gap-2.5 mb-8">
+              <div className="w-2 h-2 rounded-full bg-green animate-pulse" />
+              <span className="text-text-muted text-sm">
                 Available for opportunities
               </span>
-              <div className="w-2 h-2 rounded-full bg-green animate-pulse" />
             </div>
 
+            {/* Greeting + Name */}
             <motion.div
-              initial={{ opacity: 0, y: 30 }}
+              initial={{ opacity: 0, y: 24 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.1 }}
             >
-              <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold mb-4 tracking-tight">
-                Hi there, I&apos;m{" "}
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-accent">
-                  Nabil
-                </span>
-                .
+              <p className="text-text-muted text-lg mb-2">Hi there, I&apos;m</p>
+              <h1 className="text-5xl sm:text-6xl md:text-7xl font-serif font-bold text-text mb-4 tracking-tight leading-[1.1]">
+                Nabil
+                <span className="text-accent-warm">.</span>
               </h1>
             </motion.div>
 
-            <p className="text-lg text-text-muted mb-3 font-medium">
-              Informatics Engineering Student
-            </p>
+            {/* Subtitle */}
+            <motion.p
+              initial={{ opacity: 0, y: 24 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.2 }}
+              className="text-xl md:text-2xl font-medium text-primary mb-4"
+            >
+              Web Developer & Robotics Programmer
+            </motion.p>
 
-            <div className="text-xl md:text-2xl font-semibold text-text mb-6 h-8">
-              <TypewriterText
-                texts={[
-                  "Web Developer",
-                  "Robotics Programmer",
-                  "AR & 3D Enthusiast",
-                  "Machine Learning Explorer",
-                ]}
-              />
-            </div>
-
-            <p className="text-text-muted leading-relaxed mb-8 max-w-lg">
+            {/* Description */}
+            <motion.p
+              initial={{ opacity: 0, y: 24 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.3 }}
+              className="text-text-muted leading-relaxed mb-8 max-w-lg text-base md:text-lg"
+            >
               Merging robust web development with automation and computer vision
               to build future-ready solutions.
-            </p>
+            </motion.p>
 
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
+            {/* Quote */}
+            <motion.blockquote
+              initial={{ opacity: 0, y: 24 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.4 }}
+              className="border-l-2 border-accent-warm/50 pl-4 py-1 mb-10"
             >
-              <p className="font-mono text-xs text-text-muted mt-8 mb-8 italic border-l-2 border-primary/30 pl-4 py-1">
+              <p className="text-sm text-text-muted italic leading-relaxed">
                 &quot;Done is better than perfect, but keep improving.&quot;
               </p>
-            </motion.div>
+            </motion.blockquote>
 
-            <div className="flex flex-wrap gap-4">
+            {/* CTA Buttons */}
+            <motion.div
+              initial={{ opacity: 0, y: 24 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.5 }}
+              className="flex flex-wrap gap-4"
+            >
               <motion.button
-                whileHover={{ scale: 1.03 }}
+                whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
                 onClick={() =>
                   document
                     .getElementById("projects")
                     ?.scrollIntoView({ behavior: "smooth" })
                 }
-                className="flex items-center gap-2 px-6 py-3 rounded-xl bg-gradient-to-r from-primary to-accent text-white font-semibold shadow-lg hover:opacity-90 transition-all glow-cyan"
+                className="flex items-center gap-2 px-7 py-3.5 rounded-full bg-primary text-white font-semibold text-sm hover:bg-primary-hover transition-colors duration-300 shadow-sm"
               >
                 View Projects
                 <ArrowRight size={16} />
               </motion.button>
               <motion.button
-                whileHover={{ scale: 1.03 }}
+                whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
                 onClick={() =>
                   document
                     .getElementById("contact")
                     ?.scrollIntoView({ behavior: "smooth" })
                 }
-                className="flex items-center gap-2 px-6 py-3 rounded-xl border border-border text-text-muted font-semibold hover:border-primary/40 hover:text-text hover:bg-surface-alt transition-all"
+                className="flex items-center gap-2 px-7 py-3.5 rounded-full border border-border text-text font-semibold text-sm hover:border-primary/40 hover:bg-surface-alt transition-all duration-300"
               >
-                <Code2 size={16} />
+                <Mail size={16} />
                 Contact Me
               </motion.button>
-            </div>
+            </motion.div>
           </motion.div>
         </div>
 
-        {/* Right - 3D Canvas */}
+        {/* Right — Profile Photo */}
         <motion.div
-          initial={{ opacity: 0, scale: 0.8 }}
+          initial={{ opacity: 0, scale: 0.95 }}
           animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.8, delay: 0.2 }}
-          className="relative h-[420px] lg:h-[500px]"
+          transition={{ duration: 0.8, delay: 0.3, ease: "easeOut" }}
+          className="relative flex justify-center lg:justify-end"
         >
-          {/* Slot label */}
-          <div className="absolute top-3 left-1/2 -translate-x-1/2 z-10 font-mono text-xs text-primary/60 tracking-wider border border-primary/20 rounded px-3 py-1 bg-bg/80">
-            [SLOT_GAMBAR_3D_ASV_BOAT_MODEL]
-          </div>
+          <div className="relative">
+            {/* Soft decorative ring */}
+            <div className="absolute -inset-3 rounded-full bg-gradient-to-br from-accent-warm/10 to-accent/10 blur-sm" />
 
-          <div className="absolute inset-0 rounded-2xl border border-border overflow-hidden bg-bg">
-            {/* Corner accents */}
-            <div className="absolute top-0 left-0 w-6 h-6 border-t-2 border-l-2 border-primary/60 rounded-tl-lg z-10" />
-            <div className="absolute top-0 right-0 w-6 h-6 border-t-2 border-r-2 border-primary/60 rounded-tr-lg z-10" />
-            <div className="absolute bottom-0 left-0 w-6 h-6 border-b-2 border-l-2 border-accent/60 rounded-bl-lg z-10" />
-            <div className="absolute bottom-0 right-0 w-6 h-6 border-b-2 border-r-2 border-accent/60 rounded-br-lg z-10" />
-
-            <div className="w-full h-full p-6 flex flex-col items-center justify-center text-center backdrop-blur-sm bg-bg/50">
-              <div className="w-48 h-48 mb-6 rounded-full border border-primary/30 flex items-center justify-center overflow-hidden glow-cyan animate-pulse bg-surface">
-                <img
-                  src="/ASV_NAVANTARA2.obj"
-                  alt="ASV Model Graphic"
-                  className="hidden"
-                />{" "}
-                {/* Keep reference if user adds a real image later */}
-                <div className="w-full h-full bg-gradient-to-br from-primary/20 to-accent/20 flex flex-col items-center justify-center">
-                  <Code2 size={48} className="text-primary mb-2 opacity-80" />
-                  <span className="font-mono text-xs text-primary font-bold tracking-widest uppercase">
-                    ASV SYS
-                  </span>
-                </div>
-              </div>
-              <h3 className="text-xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-primary to-accent mb-2">
-                ASV Navantara
-              </h3>
-              <p className="text-sm text-text-muted font-mono max-w-xs">
-                Autonomous Surface Vehicle
-                <br />
-                System Visualization
-              </p>
+            {/* Photo container */}
+            <div className="relative w-72 h-72 md:w-80 md:h-80 lg:w-[360px] lg:h-[360px] rounded-full overflow-hidden border-2 border-border shadow-lg">
+              <Image
+                src="/profil.jpg"
+                alt="Foto profil Nabil — Informatics Engineering student"
+                fill
+                className="object-cover object-center"
+                priority
+              />
             </div>
-          </div>
 
-          {/* Stats badges */}
-          <motion.div
-            initial={{ opacity: 0, x: 20 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ delay: 0.8 }}
-            className="absolute -right-4 top-1/3 bg-surface border border-border rounded-xl p-3 shadow-xl"
-          >
-            <p className="font-mono text-xs text-text-muted">Semester</p>
-            <p className="text-2xl font-bold text-primary">4th</p>
-          </motion.div>
-          <motion.div
-            initial={{ opacity: 0, x: -20 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ delay: 1 }}
-            className="absolute -left-4 bottom-1/3 bg-surface border border-border rounded-xl p-3 shadow-xl"
-          >
-            <p className="font-mono text-xs text-text-muted">Role</p>
-            <p className="text-sm font-bold text-accent">Lead Programmer</p>
-          </motion.div>
+            {/* Floating badge — Semester */}
+            <motion.div
+              initial={{ opacity: 0, y: 16 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.9, duration: 0.6 }}
+              className="absolute -right-2 top-1/4 bg-surface border border-border rounded-2xl px-4 py-3 shadow-md"
+            >
+              <p className="text-xs text-text-muted mb-0.5">Semester</p>
+              <p className="text-xl font-bold font-serif text-accent-warm">5th</p>
+            </motion.div>
+
+            {/* Floating badge — Role */}
+            <motion.div
+              initial={{ opacity: 0, y: 16 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 1.1, duration: 0.6 }}
+              className="absolute -left-4 bottom-1/4 bg-surface border border-border rounded-2xl px-4 py-3 shadow-md"
+            >
+              <p className="text-xs text-text-muted mb-0.5">Role</p>
+              <p className="text-sm font-bold text-accent">Lead Programmer</p>
+            </motion.div>
+          </div>
         </motion.div>
       </div>
 
       {/* Scroll indicator */}
       <motion.button
         onClick={handleScrollDown}
-        animate={{ y: [0, 8, 0] }}
-        transition={{ repeat: Infinity, duration: 2 }}
-        className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-1 text-text-muted hover:text-primary transition-colors"
-        aria-label="Scroll down"
+        animate={{ y: [0, 6, 0] }}
+        transition={{ repeat: Infinity, duration: 2.5, ease: "easeInOut" }}
+        className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-1 text-text-muted hover:text-accent-warm transition-colors duration-300"
+        aria-label="Scroll down to about section"
       >
-        <span className="font-mono text-xs tracking-widest">SCROLL</span>
-        <ChevronDown size={20} />
+        <span className="text-xs tracking-wider">Scroll</span>
+        <ChevronDown size={18} />
       </motion.button>
     </section>
   );

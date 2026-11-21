@@ -10,23 +10,37 @@ const experiences = [
     company: "UKM Robotika UMRAH",
     period: "2025 — Present",
     description:
-      "Leading the programming division, managing the R&D roadmap, and overseeing technical training for division members. Spearheading software and automation research for intelligent systems.",
+      "Leading the programming division of UKM Robotika UMRAH, managing the R&D roadmap, overseeing technical training for division members, and coordinating software and automation research for intelligent robotics systems.",
     achievements: [
-      "Led the team to win Juara Harapan 1 (National Level) at the Kontes Kapal Indonesia (KKI) 2025.",
-      "Developed Python-based backend logic and sensor integration for the Autonomous Surface Vehicle (ASV) Navantara.",
+      "Led autonomous navigation software development for Navantara ASV competing in Kontes Kapal Indonesia (KKI) 2026 organized by BPTI / Kemendikbudristek.",
+      "Developed full ROS 2 navigation stack: Pure Pursuit path tracking, rolling 2D costmaps, buoy gate detection with YOLOv11 on NVIDIA Jetson Orin Nano.",
+      "Designed and deployed ESP32 firmware for closed-loop propulsion control and inverse kinematics on the physical vessel.",
     ],
     icon: Terminal,
   },
   {
     id: 2,
+    role: "Autonomous Systems Lead & Competition Participant",
+    company: "Kontes Kapal Indonesia (KKI) 2025 — Navantara UMRAH",
+    period: "2025",
+    description:
+      "Represented UMRAH in the national Kontes Kapal Indonesia, a competition organized by Balai Pengembangan Talenta Indonesia (BPTI) under Kemendikbudristek. Served as the lead programmer for the Autonomous Surface Vessel (ASV) Navantara.",
+    achievements: [
+      "Implemented Python-based autonomous navigation backend with computer vision-driven obstacle detection.",
+      "Achieved Juara Harapan 1 (National Level) at KKI 2025.",
+    ],
+    icon: Award,
+  },
+  {
+    id: 3,
     role: "Core IT Team & 3D Modeler",
     company: "ARSULA Project (Community Service)",
     period: "2026",
     description:
-      "Collaborated as a technical team member in a community service project to build an Augmented Reality (AR) application for Museum Sultan Sulaiman Badrul Alamsyah.",
+      "Contributed to a community service project developing an Augmented Reality application for Museum Sultan Sulaiman Badrul Alamsyah, bringing historical artifacts to life for museum visitors.",
     achievements: [
-      "Designed and optimized 3D artifact models to be rendered within the AR environment.",
-      "Managed the technical documentation for the ARSULA application to ensure a smooth project handover.",
+      "Designed and optimized 3D artifact models for real-time AR rendering.",
+      "Authored technical documentation for a smooth project handover to the museum.",
     ],
     icon: Briefcase,
   },
@@ -34,23 +48,23 @@ const experiences = [
 
 export default function ExperienceSection() {
   return (
-    <section id="experience" className="py-24 px-6 relative z-10">
+    <section id="experience" className="py-28 md:py-32 px-6 md:px-8 relative z-10">
       <div className="max-w-4xl mx-auto">
         {/* Section Header */}
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 16 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
+          transition={{ duration: 0.7 }}
           className="mb-16 md:mb-20"
         >
           <div className="flex items-center gap-3 mb-4">
-            <div className="h-px w-8 bg-primary" />
-            <span className="font-mono text-primary text-xs tracking-widest uppercase">
-              03 / Experience
+            <div className="w-8 h-0.5 bg-accent-warm rounded-full" />
+            <span className="text-accent-warm text-sm font-medium tracking-wide">
+              Experience
             </span>
           </div>
-          <h2 className="text-3xl md:text-5xl font-bold text-text tracking-tight">
+          <h2 className="text-3xl md:text-5xl font-serif font-bold text-text tracking-tight">
             Work & Leadership
           </h2>
           <p className="mt-4 text-text-muted text-base md:text-lg max-w-xl leading-relaxed">
@@ -59,67 +73,63 @@ export default function ExperienceSection() {
         </motion.div>
 
         {/* Timeline Container */}
-        {/* Kontras garis diperhalus agar tidak terlalu mendistraksi konten utama */}
-        <div className="relative border-l-2 border-border/40 ml-4 md:ml-6 space-y-16">
+        <div className="relative border-l border-border ml-4 md:ml-6 space-y-14">
           {experiences.map((exp, index) => {
             const Icon = exp.icon;
             return (
               <motion.div
                 key={exp.id}
-                initial={{ opacity: 0, x: -20 }}
+                initial={{ opacity: 0, x: -16 }}
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.6, delay: index * 0.2 }}
+                transition={{ duration: 0.7, delay: index * 0.15 }}
                 className="relative pl-8 md:pl-12 group"
               >
-                {/* Timeline Dot/Icon */}
-                <div className="absolute left-[-22px] md:left-[-25px] top-0 w-11 h-11 md:w-12 md:h-12 bg-bg border-2 border-border group-hover:border-primary/50 rounded-full flex items-center justify-center shadow-lg transition-all duration-300 z-10 group-hover:shadow-[0_0_15px_rgba(var(--primary-rgb),0.3)] group-hover:scale-110">
-                  <Icon size={20} className="text-text-muted group-hover:text-primary transition-colors duration-300" />
+                {/* Timeline Dot */}
+                <div className="absolute left-[-20px] md:left-[-23px] top-1 w-10 h-10 bg-surface border border-border group-hover:border-accent-warm/50 rounded-full flex items-center justify-center shadow-sm transition-all duration-300 z-10">
+                  <Icon size={18} className="text-text-muted group-hover:text-accent-warm transition-colors duration-300" />
                 </div>
 
                 {/* Content Card */}
-                {/* Repetisi radius secara konsisten dan interaksi hover transparan padu */}
-                <div className="flex flex-col gap-5 p-6 md:p-8 rounded-2xl bg-surface/30 backdrop-blur-sm border border-border group-hover:border-primary/30 group-hover:bg-surface/50 transition-all duration-300 shadow-sm">
-
-                  {/* Header Group */}
-                  <div className="flex flex-col lg:flex-row lg:items-start lg:justify-between gap-4 border-b border-border/50 pb-5">
-                    <div className="flex flex-col gap-1.5">
-                      <h3 className="text-xl md:text-2xl font-bold text-text group-hover:text-primary transition-colors">
+                <div className="card flex flex-col gap-5 p-6 md:p-8 group-hover:border-accent/30 transition-all duration-300">
+                  {/* Header */}
+                  <div className="flex flex-col lg:flex-row lg:items-start lg:justify-between gap-4 border-b border-border pb-5">
+                    <div className="flex flex-col gap-1">
+                      <h3 className="text-xl md:text-2xl font-serif font-bold text-text group-hover:text-accent-warm transition-colors duration-300">
                         {exp.role}
                       </h3>
-                      <p className="text-base font-semibold text-accent/90 tracking-wide">
+                      <p className="text-base font-medium text-accent tracking-wide">
                         {exp.company}
                       </p>
                     </div>
-                    <div className="flex items-center gap-2 text-text-muted font-mono text-sm bg-surface-alt/70 px-4 py-1.5 rounded-full border border-border shrink-0 shadow-inner">
-                      <Calendar size={14} className="text-primary/70" />
+                    <div className="flex items-center gap-2 text-text-muted text-sm bg-surface-alt px-4 py-1.5 rounded-full border border-border shrink-0">
+                      <Calendar size={14} className="text-accent-warm" />
                       {exp.period}
                     </div>
                   </div>
 
-                  {/* Description Group */}
+                  {/* Description */}
                   <p className="text-text-muted text-sm md:text-base leading-relaxed">
                     {exp.description}
                   </p>
 
-                  {/* Achievements Group */}
+                  {/* Achievements */}
                   {exp.achievements && exp.achievements.length > 0 && (
-                    <div className="mt-2 flex flex-col gap-4 bg-surface-alt/20 p-5 rounded-xl border border-border/40">
-                      <h4 className="flex items-center gap-2 text-sm font-bold text-text uppercase tracking-widest">
-                        <Award size={16} className="text-green" />
+                    <div className="flex flex-col gap-3 bg-surface-alt/50 p-5 rounded-xl border border-border">
+                      <h4 className="flex items-center gap-2 text-sm font-semibold text-text">
+                        <Award size={16} className="text-accent-warm" />
                         Key Achievements
                       </h4>
-                      <ul className="flex flex-col gap-3">
+                      <ul className="flex flex-col gap-2.5">
                         {exp.achievements.map((achievement, i) => (
                           <li key={i} className="flex items-start gap-3 text-sm md:text-base text-text-muted">
-                            <ChevronRight size={18} className="text-primary/80 shrink-0 mt-0.5" />
+                            <ChevronRight size={16} className="text-accent shrink-0 mt-0.5" />
                             <span className="leading-relaxed">{achievement}</span>
                           </li>
                         ))}
                       </ul>
                     </div>
                   )}
-
                 </div>
               </motion.div>
             );

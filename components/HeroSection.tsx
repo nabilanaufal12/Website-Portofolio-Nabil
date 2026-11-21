@@ -14,9 +14,9 @@ export default function HeroSection() {
       id="hero"
       className="relative min-h-screen flex items-center overflow-hidden"
     >
-      {/* Subtle background warmth */}
+      {/* Background accents */}
       <div className="absolute inset-0 pointer-events-none">
-        <div className="absolute top-1/3 right-0 w-[500px] h-[500px] bg-accent-warm/5 rounded-full blur-[120px]" />
+        <div className="absolute top-1/3 right-0 w-[500px] h-[500px] bg-accent/8 rounded-full blur-[120px]" />
         <div className="absolute bottom-1/4 left-0 w-[400px] h-[400px] bg-accent/5 rounded-full blur-[100px]" />
       </div>
 
@@ -97,7 +97,7 @@ export default function HeroSection() {
                     .getElementById("projects")
                     ?.scrollIntoView({ behavior: "smooth" })
                 }
-                className="flex items-center gap-2 px-7 py-3.5 rounded-full bg-primary text-white font-semibold text-sm hover:bg-primary-hover transition-colors duration-300 shadow-sm"
+                className="flex items-center gap-2 px-7 py-3.5 rounded-full bg-accent text-black font-semibold text-sm hover:bg-accent/80 transition-colors duration-300 shadow-sm"
               >
                 View Projects
                 <ArrowRight size={16} />
@@ -128,10 +128,10 @@ export default function HeroSection() {
         >
           <div className="relative">
             {/* Soft decorative ring */}
-            <div className="absolute -inset-3 rounded-full bg-gradient-to-br from-accent-warm/10 to-accent/10 blur-sm" />
+            <div className="absolute -inset-3 rounded-full bg-gradient-to-br from-accent/20 to-accent/5 blur-sm" />
 
             {/* Photo container */}
-            <div className="relative w-72 h-72 md:w-80 md:h-80 lg:w-[360px] lg:h-[360px] rounded-full overflow-hidden border-2 border-border shadow-lg">
+            <div className="relative w-72 h-72 md:w-80 md:h-80 lg:w-[360px] lg:h-[360px] rounded-full overflow-hidden border-4 border-accent shadow-lg shadow-accent/20">
               <Image
                 src="/profil.jpg"
                 alt="Foto profil Nabil — Informatics Engineering student"

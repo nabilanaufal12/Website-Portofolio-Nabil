@@ -116,7 +116,7 @@ export default function Navbar() {
                 e.preventDefault();
                 handleNavClick("#contact");
               }}
-              className="hidden md:flex items-center gap-2 px-5 py-2 rounded-full bg-primary text-white text-sm font-semibold hover:bg-primary-hover transition-colors duration-300"
+              className="hidden md:flex items-center gap-2 px-5 py-2 rounded-full bg-accent text-black text-sm font-semibold hover:bg-accent/80 transition-colors duration-300"
             >
               Let&apos;s Talk
             </a>
@@ -161,7 +161,7 @@ export default function Navbar() {
                   e.preventDefault();
                   handleNavClick("#contact");
                 }}
-                className="mt-2 text-center px-4 py-3 rounded-xl bg-primary text-white text-sm font-semibold"
+                className="mt-2 text-center px-4 py-3 rounded-xl bg-accent text-black text-sm font-semibold"
               >
                 Let&apos;s Talk
               </a>

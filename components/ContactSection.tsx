@@ -63,20 +63,23 @@ export default function ContactSection() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.7 }}
-          className="mb-16"
+          className="mb-12 md:mb-16"
         >
-          <div className="flex items-center gap-3 mb-4">
-            <div className="w-8 h-0.5 bg-accent-warm rounded-full" />
-            <span className="text-accent-warm text-sm font-medium tracking-wide">
-              Contact
+          <div className="flex items-center gap-3 mb-3">
+            <span className="px-3 py-1 rounded-full bg-accent text-black font-bold text-xs uppercase tracking-wider">
+              Get in Touch
             </span>
           </div>
-          <h2 className="text-3xl md:text-5xl font-serif font-bold text-text tracking-tight">
-            Connect With Me
-          </h2>
-          <p className="mt-4 text-text-muted text-base md:text-lg max-w-lg leading-relaxed">
-            Have a project in mind or want to collaborate? Drop me a message
-            below.
+          <div className="relative">
+            <span className="text-accent text-6xl md:text-7xl font-black font-sans leading-none absolute -top-6 -left-4 select-none opacity-90">
+              &rdquo;
+            </span>
+            <h2 className="text-4xl md:text-6xl font-black tracking-tight text-text uppercase font-sans">
+              LET&apos;S CONNECT.
+            </h2>
+          </div>
+          <p className="mt-3 text-text-muted text-base md:text-lg max-w-lg leading-relaxed">
+            Have an engineering challenge, autonomous vessel project, or collaboration? Let&apos;s talk.
           </p>
         </motion.div>
 
@@ -163,7 +166,7 @@ export default function ContactSection() {
                     whileHover={{ scale: 1.01 }}
                     whileTap={{ scale: 0.98 }}
                     type="submit"
-                    className="flex items-center justify-center gap-2 w-full py-3.5 rounded-xl bg-primary text-white font-semibold text-sm hover:bg-primary-hover transition-colors duration-300"
+                    className="flex items-center justify-center gap-2 w-full py-3.5 rounded-xl bg-accent text-black font-bold text-sm border-2 border-primary hover:bg-accent/80 transition-colors duration-300 shadow-md"
                   >
                     <Send size={16} />
                     Send Message

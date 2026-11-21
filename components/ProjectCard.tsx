@@ -45,12 +45,12 @@ export default function ProjectCard({
         {/* Type badge */}
         <div className="absolute top-3 left-3 z-10">
           <span
-            className={`text-xs font-medium tracking-wide px-3 py-1 rounded-full ${
+            className={`text-xs font-bold tracking-wide px-3 py-1 rounded-full ${
               type === "research"
-                ? "text-accent bg-accent/10 border border-accent/20"
+                ? "text-black bg-accent border border-primary/20 shadow-sm"
                 : type === "academic"
                 ? "text-primary bg-primary/10 border border-primary/20"
-                : "text-accent-warm bg-accent-warm/10 border border-accent-warm/20"
+                : "text-black bg-accent border border-primary/20 shadow-sm"
             }`}
           >
             {type === "research"

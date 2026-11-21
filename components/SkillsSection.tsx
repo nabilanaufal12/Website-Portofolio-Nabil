@@ -54,29 +54,33 @@ export default function SkillsSection() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.7 }}
-          className="mb-16 md:mb-20"
+          className="mb-12 md:mb-16"
         >
-          <div className="flex items-center gap-3 mb-4">
-            <div className="w-8 h-0.5 bg-accent-warm rounded-full" />
-            <span className="text-accent-warm text-sm font-medium tracking-wide">
-              Skills
+          <div className="flex items-center gap-3 mb-3">
+            <span className="px-3 py-1 rounded-full bg-accent text-black font-bold text-xs uppercase tracking-wider">
+              Expertise
             </span>
           </div>
-          <h2 className="text-3xl md:text-5xl font-serif font-bold text-text tracking-tight">
-            Technical Stack
-          </h2>
-          <p className="mt-4 text-text-muted text-base md:text-lg max-w-xl leading-relaxed">
-            Technologies and tools I work with daily.
+          <div className="relative">
+            <span className="text-accent text-6xl md:text-7xl font-black font-sans leading-none absolute -top-6 -left-4 select-none opacity-90">
+              &rdquo;
+            </span>
+            <h2 className="text-4xl md:text-6xl font-black tracking-tight text-text uppercase font-sans">
+              TECH ARSENAL.
+            </h2>
+          </div>
+          <p className="mt-3 text-text-muted text-base md:text-lg max-w-xl leading-relaxed">
+            Technologies and tools I work with daily across robotics, web, and embedded systems.
           </p>
         </motion.div>
 
-        {/* Skills Grid */}
+        {/* Skills Grid — Poster Cards with Yellow Squircle Header */}
         <motion.div
           variants={containerVariants}
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true }}
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5"
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6"
         >
           {skillCategories.map((category) => {
             const Icon = category.icon;
@@ -84,22 +88,24 @@ export default function SkillsSection() {
               <motion.div
                 key={category.title}
                 variants={itemVariants}
-                className="card p-6 flex flex-col gap-4"
+                className="card p-6 flex flex-col gap-4 border-2 border-border hover:border-accent bg-surface transition-all duration-300"
               >
-                <div className="flex items-center gap-3">
-                  <div className="p-2.5 rounded-xl bg-surface-alt border border-border">
-                    <Icon size={18} className="text-accent-warm" />
-                  </div>
-                  <h3 className="font-semibold text-sm text-text">
+                {/* Yellow Squircle Icon Box like reference poster */}
+                <div className="w-14 h-14 rounded-2xl bg-accent flex items-center justify-center shadow-md">
+                  <Icon size={26} className="text-black" />
+                </div>
+
+                <div>
+                  <h3 className="font-black text-base text-text uppercase tracking-tight">
                     {category.title}
                   </h3>
                 </div>
 
-                <div className="flex flex-wrap gap-2 mt-1">
+                <div className="flex flex-wrap gap-1.5 mt-auto pt-2 border-t border-border">
                   {category.skills.map((skill) => (
                     <span
                       key={skill}
-                      className="px-3 py-1.5 rounded-full bg-surface-alt border border-border text-xs font-medium text-text-muted hover:border-accent/40 hover:text-text transition-colors duration-300 cursor-default"
+                      className="px-2.5 py-1 rounded-full bg-surface-alt border border-border text-[11px] font-bold text-text-muted hover:border-accent hover:text-text hover:bg-accent/10 transition-colors duration-200 cursor-default"
                     >
                       {skill}
                     </span>

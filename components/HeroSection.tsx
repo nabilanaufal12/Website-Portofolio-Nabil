@@ -28,56 +28,55 @@ export default function HeroSection() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, ease: "easeOut" }}
           >
-            {/* Availability badge */}
-            <div className="flex items-center gap-2.5 mb-8">
-              <div className="w-2 h-2 rounded-full bg-green animate-pulse" />
-              <span className="text-text-muted text-sm">
-                Available for opportunities
+            {/* Availability & Pill Tag */}
+            <div className="flex flex-wrap items-center gap-3 mb-6">
+              <span className="px-3.5 py-1.5 rounded-full bg-accent text-black font-bold text-xs uppercase tracking-wider shadow-sm">
+                Creative Robotics & Dev
               </span>
+              <div className="flex items-center gap-2 px-3 py-1 rounded-full bg-surface border border-border text-xs text-text-muted">
+                <div className="w-2 h-2 rounded-full bg-green animate-pulse" />
+                <span>Available for opportunities</span>
+              </div>
             </div>
 
-            {/* Greeting + Name */}
+            {/* Title with yellow quote — Poster editorial style */}
             <motion.div
               initial={{ opacity: 0, y: 24 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.1 }}
+              className="relative mb-6"
             >
-              <p className="text-text-muted text-lg mb-2">Hi there, I&apos;m</p>
-              <h1 className="text-5xl sm:text-6xl md:text-7xl font-serif font-bold text-text mb-4 tracking-tight leading-[1.1]">
-                Nabil
-                <span className="text-accent-warm">.</span>
+              <span className="text-accent text-7xl sm:text-8xl md:text-9xl font-black font-sans leading-none absolute -top-8 -left-5 select-none opacity-90">
+                &rdquo;
+              </span>
+              <h1 className="text-5xl sm:text-7xl md:text-8xl font-black tracking-tight text-text leading-[0.95] uppercase font-sans">
+                PORTO<br />
+                <span className="text-text">FOLO.</span>
               </h1>
+              <p className="mt-3 text-base md:text-lg font-bold text-accent tracking-wide uppercase">
+                Nabil — Informatics Engineering Student & ASV Lead Programmer
+              </p>
             </motion.div>
-
-            {/* Subtitle */}
-            <motion.p
-              initial={{ opacity: 0, y: 24 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.2 }}
-              className="text-xl md:text-2xl font-medium text-primary mb-4"
-            >
-              Web Developer & Robotics Programmer
-            </motion.p>
 
             {/* Description */}
             <motion.p
               initial={{ opacity: 0, y: 24 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.3 }}
-              className="text-text-muted leading-relaxed mb-8 max-w-lg text-base md:text-lg"
+              transition={{ duration: 0.8, delay: 0.2 }}
+              className="text-text-muted leading-relaxed mb-6 max-w-lg text-base md:text-lg"
             >
-              Merging robust web development with automation and computer vision
-              to build future-ready solutions.
+              Merging robust full-stack web development with autonomous robotics
+              and computer vision to build future-ready solutions.
             </motion.p>
 
             {/* Quote */}
             <motion.blockquote
               initial={{ opacity: 0, y: 24 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.4 }}
-              className="border-l-2 border-accent-warm/50 pl-4 py-1 mb-10"
+              transition={{ duration: 0.8, delay: 0.3 }}
+              className="border-l-4 border-accent pl-4 py-1 mb-8 bg-surface/40 rounded-r-lg"
             >
-              <p className="text-sm text-text-muted italic leading-relaxed">
+              <p className="text-sm text-text font-medium italic leading-relaxed">
                 &quot;Done is better than perfect, but keep improving.&quot;
               </p>
             </motion.blockquote>
@@ -86,7 +85,7 @@ export default function HeroSection() {
             <motion.div
               initial={{ opacity: 0, y: 24 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.5 }}
+              transition={{ duration: 0.8, delay: 0.4 }}
               className="flex flex-wrap gap-4"
             >
               <motion.button
@@ -97,7 +96,7 @@ export default function HeroSection() {
                     .getElementById("projects")
                     ?.scrollIntoView({ behavior: "smooth" })
                 }
-                className="flex items-center gap-2 px-7 py-3.5 rounded-full bg-accent text-black font-semibold text-sm hover:bg-accent/80 transition-colors duration-300 shadow-sm"
+                className="flex items-center gap-2 px-7 py-3.5 rounded-full bg-accent text-black font-bold text-sm hover:bg-accent/80 transition-colors duration-300 shadow-md"
               >
                 View Projects
                 <ArrowRight size={16} />
@@ -110,7 +109,7 @@ export default function HeroSection() {
                     .getElementById("contact")
                     ?.scrollIntoView({ behavior: "smooth" })
                 }
-                className="flex items-center gap-2 px-7 py-3.5 rounded-full border border-border text-text font-semibold text-sm hover:border-primary/40 hover:bg-surface-alt transition-all duration-300"
+                className="flex items-center gap-2 px-7 py-3.5 rounded-full bg-surface border-2 border-primary text-text font-bold text-sm hover:bg-surface-alt transition-all duration-300 shadow-sm"
               >
                 <Mail size={16} />
                 Contact Me
@@ -119,7 +118,7 @@ export default function HeroSection() {
           </motion.div>
         </div>
 
-        {/* Right — Profile Photo */}
+        {/* Right — Profile Photo with Yellow Backdrop Block */}
         <motion.div
           initial={{ opacity: 0, scale: 0.95 }}
           animate={{ opacity: 1, scale: 1 }}
@@ -127,16 +126,17 @@ export default function HeroSection() {
           className="relative flex justify-center lg:justify-end"
         >
           <div className="relative">
-            {/* Soft decorative ring */}
-            <div className="absolute -inset-3 rounded-full bg-gradient-to-br from-accent/20 to-accent/5 blur-sm" />
+            {/* Yellow backdrop block from the reference poster */}
+            <div className="absolute -top-3 -right-3 w-72 h-80 sm:w-80 sm:h-96 md:w-[320px] md:h-[400px] bg-accent rounded-[2.5rem] rotate-3" />
 
             {/* Photo container */}
-            <div className="relative w-72 h-72 md:w-80 md:h-80 lg:w-[360px] lg:h-[360px] rounded-full overflow-hidden border-4 border-accent shadow-lg shadow-accent/20">
+            <div className="relative w-72 h-80 sm:w-80 sm:h-96 md:w-[320px] md:h-[400px] rounded-[2rem] overflow-hidden border-2 border-primary bg-surface shadow-2xl">
               <Image
-                src="/profil.jpg"
-                alt="Foto profil Nabil — Informatics Engineering student"
+                src="/profil-nabil-kki.jpg"
+                alt="Foto profil Nabil — KKI ASV Lead Programmer"
                 fill
-                className="object-cover object-center"
+                sizes="(max-width: 768px) 320px, 400px"
+                className="object-cover object-top"
                 priority
               />
             </div>
@@ -145,22 +145,22 @@ export default function HeroSection() {
             <motion.div
               initial={{ opacity: 0, y: 16 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.9, duration: 0.6 }}
-              className="absolute -right-2 top-1/4 bg-surface border border-border rounded-2xl px-4 py-3 shadow-md"
+              transition={{ delay: 0.8, duration: 0.5 }}
+              className="absolute -right-3 bottom-6 bg-accent text-black font-bold border-2 border-primary rounded-2xl px-4 py-2.5 shadow-lg"
             >
-              <p className="text-xs text-text-muted mb-0.5">Semester</p>
-              <p className="text-xl font-bold font-serif text-accent-warm">5th</p>
+              <p className="text-[10px] uppercase tracking-wider text-black/70">Semester</p>
+              <p className="text-lg font-black leading-tight">5th</p>
             </motion.div>
 
             {/* Floating badge — Role */}
             <motion.div
               initial={{ opacity: 0, y: 16 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 1.1, duration: 0.6 }}
-              className="absolute -left-4 bottom-1/4 bg-surface border border-border rounded-2xl px-4 py-3 shadow-md"
+              transition={{ delay: 1, duration: 0.5 }}
+              className="absolute -left-4 top-10 bg-primary text-white border border-border rounded-2xl px-4 py-2.5 shadow-lg"
             >
-              <p className="text-xs text-text-muted mb-0.5">Role</p>
-              <p className="text-sm font-bold text-accent">Lead Programmer</p>
+              <p className="text-[10px] uppercase tracking-wider text-white/70">National ASV</p>
+              <p className="text-xs font-bold leading-tight">Lead Programmer</p>
             </motion.div>
           </div>
         </motion.div>

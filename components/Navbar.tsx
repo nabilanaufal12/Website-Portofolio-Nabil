@@ -69,10 +69,10 @@ export default function Navbar() {
             className="flex items-center gap-2 group"
             aria-label="Go to top"
           >
-            <span className="font-serif text-xl font-semibold text-text group-hover:text-accent-warm transition-colors duration-300">
+            <span className="font-sans text-xl font-black text-text group-hover:text-accent transition-colors duration-300 uppercase tracking-tight">
               Nabil
             </span>
-            <span className="w-1.5 h-1.5 rounded-full bg-accent-warm" />
+            <span className="w-2 h-2 rounded-full bg-accent" />
           </button>
 
           {/* Desktop Links */}

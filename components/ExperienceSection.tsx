@@ -69,19 +69,23 @@ export default function ExperienceSection() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.7 }}
-          className="mb-16 md:mb-20"
+          className="mb-12 md:mb-16"
         >
-          <div className="flex items-center gap-3 mb-4">
-            <div className="w-8 h-0.5 bg-accent-warm rounded-full" />
-            <span className="text-accent-warm text-sm font-medium tracking-wide">
-              Experience
+          <div className="flex items-center gap-3 mb-3">
+            <span className="px-3 py-1 rounded-full bg-accent text-black font-bold text-xs uppercase tracking-wider">
+              Career & Leadership
             </span>
           </div>
-          <h2 className="text-3xl md:text-5xl font-serif font-bold text-text tracking-tight">
-            Work & Leadership
-          </h2>
-          <p className="mt-4 text-text-muted text-base md:text-lg max-w-xl leading-relaxed">
-            A timeline of my professional roles, leadership positions, and core technical contributions.
+          <div className="relative">
+            <span className="text-accent text-6xl md:text-7xl font-black font-sans leading-none absolute -top-6 -left-4 select-none opacity-90">
+              &rdquo;
+            </span>
+            <h2 className="text-4xl md:text-6xl font-black tracking-tight text-text uppercase font-sans">
+              EXPERIENCE.
+            </h2>
+          </div>
+          <p className="mt-3 text-text-muted text-base md:text-lg max-w-xl leading-relaxed">
+            Professional roles, competition leadership, and engineering achievements.
           </p>
         </motion.div>
 

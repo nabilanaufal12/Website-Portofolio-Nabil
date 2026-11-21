@@ -121,18 +121,22 @@ export default function CertificatesSection() {
           transition={{ duration: 0.7 }}
           className="mb-12 md:mb-16"
         >
-          <div className="flex items-center gap-3 mb-4">
-            <div className="w-8 h-0.5 bg-accent-warm rounded-full" />
-            <span className="text-accent-warm text-sm font-medium tracking-wide">
-              Certificates
+          <div className="flex items-center gap-3 mb-3">
+            <span className="px-3 py-1 rounded-full bg-accent text-black font-bold text-xs uppercase tracking-wider">
+              Credentials
             </span>
           </div>
           <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6">
             <div>
-              <h2 className="text-3xl md:text-5xl font-serif font-bold text-text tracking-tight">
-                Credentials & Achievements
-              </h2>
-              <p className="mt-4 text-text-muted text-base md:text-lg max-w-xl leading-relaxed">
+              <div className="relative">
+                <span className="text-accent text-6xl md:text-7xl font-black font-sans leading-none absolute -top-6 -left-4 select-none opacity-90">
+                  &rdquo;
+                </span>
+                <h2 className="text-4xl md:text-6xl font-black tracking-tight text-text uppercase font-sans">
+                  CERTIFICATES.
+                </h2>
+              </div>
+              <p className="mt-3 text-text-muted text-base md:text-lg max-w-xl leading-relaxed">
                 National competition honors, academic awards, and leadership certifications.
               </p>
             </div>
@@ -143,10 +147,10 @@ export default function CertificatesSection() {
                 <button
                   key={cat}
                   onClick={() => setActiveCategory(cat)}
-                  className={`px-4 py-2 rounded-full text-xs font-semibold transition-all duration-300 ${
+                  className={`px-4 py-2 rounded-full text-xs font-bold transition-all duration-300 ${
                     activeCategory === cat
-                      ? "bg-primary text-white shadow-sm"
-                      : "bg-surface border border-border text-text-muted hover:border-primary/40 hover:text-text"
+                      ? "bg-accent text-black shadow-md border-2 border-primary"
+                      : "bg-surface border-2 border-border text-text hover:border-accent hover:text-black"
                   }`}
                 >
                   {cat}
@@ -171,8 +175,8 @@ export default function CertificatesSection() {
                 {/* Image slot */}
                 <div className="relative aspect-[4/3] bg-surface-alt overflow-hidden">
                   {/* Badge */}
-                  <div className="absolute top-3 left-3 z-10 flex items-center justify-center w-8 h-8 rounded-full bg-accent-warm/10 border border-accent-warm/20 backdrop-blur-sm">
-                    <Award size={14} className="text-accent-warm" />
+                  <div className="absolute top-3 left-3 z-10 flex items-center justify-center w-8 h-8 rounded-full bg-accent border border-primary shadow-sm">
+                    <Award size={14} className="text-black" />
                   </div>
 
                   {/* Image or placeholder */}

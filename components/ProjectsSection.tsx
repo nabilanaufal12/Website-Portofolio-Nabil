@@ -99,30 +99,34 @@ export default function ProjectsSection() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.7 }}
-          className="mb-16 md:mb-20"
+          className="mb-12 md:mb-16"
         >
-          <div className="flex items-center gap-3 mb-4">
-            <div className="w-8 h-0.5 bg-accent-warm rounded-full" />
-            <span className="text-accent-warm text-sm font-medium tracking-wide">
-              Projects
+          <div className="flex items-center gap-3 mb-3">
+            <span className="px-3 py-1 rounded-full bg-accent text-black font-bold text-xs uppercase tracking-wider">
+              Selected Works
             </span>
           </div>
           <div className="flex items-end justify-between gap-4 flex-wrap">
             <div>
-              <h2 className="text-3xl md:text-5xl font-serif font-bold text-text tracking-tight">
-                Featured Work
-              </h2>
-              <p className="mt-4 text-text-muted text-base md:text-lg max-w-xl leading-relaxed">
-                Highlighted projects across web, robotics, and intelligent systems.
+              <div className="relative">
+                <span className="text-accent text-6xl md:text-7xl font-black font-sans leading-none absolute -top-6 -left-4 select-none opacity-90">
+                  &rdquo;
+                </span>
+                <h2 className="text-4xl md:text-6xl font-black tracking-tight text-text uppercase font-sans">
+                  FEATURED PROJECTS.
+                </h2>
+              </div>
+              <p className="mt-3 text-text-muted text-base md:text-lg max-w-xl leading-relaxed">
+                Highlighted engineering projects across robotics, web applications, and embedded IoT.
               </p>
             </div>
             <a
               href="https://github.com/nabilanaufal12"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-sm text-accent-warm hover:text-accent-warm/80 transition-colors duration-300 flex items-center gap-1.5 shrink-0 font-medium"
+              className="px-4 py-2 rounded-full bg-accent text-black font-bold text-xs border-2 border-primary hover:bg-accent/80 transition-colors duration-300 flex items-center gap-1.5 shrink-0 shadow-sm"
             >
-              View all on GitHub →
+              GitHub Portfolio →
             </a>
           </div>
         </motion.div>

@@ -43,8 +43,12 @@ export default function ContactSection() {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    // In production, connect to an email service (e.g. Resend / EmailJS)
-    console.log("Form submitted:", formData);
+    const mailtoUrl = `mailto:nabilxmia@gmail.com?subject=Portfolio%20Inquiry%20from%20${encodeURIComponent(
+      formData.name
+    )}&body=${encodeURIComponent(
+      `Name: ${formData.name}\nEmail: ${formData.email}\n\nMessage:\n${formData.message}`
+    )}`;
+    window.location.href = mailtoUrl;
     setSubmitted(true);
     setTimeout(() => setSubmitted(false), 4000);
     setFormData({ name: "", email: "", message: "" });
@@ -178,7 +182,10 @@ export default function ContactSection() {
             className="flex flex-col gap-4"
           >
             {/* Email direct */}
-            <div className="card p-5 flex items-center gap-4">
+            <a
+              href="mailto:nabilxmia@gmail.com"
+              className="card p-5 flex items-center gap-4 hover:border-accent-warm/40 transition-colors duration-300"
+            >
               <div className="w-10 h-10 rounded-xl bg-accent-warm/10 border border-accent-warm/20 flex items-center justify-center shrink-0">
                 <Mail size={18} className="text-accent-warm" />
               </div>
@@ -187,10 +194,10 @@ export default function ContactSection() {
                   Email
                 </p>
                 <p className="text-sm font-semibold text-text">
-                  nabilanaufal12@gmail.com
+                  nabilxmia@gmail.com
                 </p>
               </div>
-            </div>
+            </a>
 
             {/* Social links */}
             <div className="flex flex-col gap-3">
@@ -228,23 +235,27 @@ export default function ContactSection() {
               })}
             </div>
 
-            {/* CV Download */}
+            {/* CV Download / Request */}
             <motion.a
-              href="/[SLOT_DOKUMEN_CV_PDF]"
-              download
+              href="mailto:nabilxmia@gmail.com?subject=Request%20CV%20-%20Nabil"
               whileHover={{ scale: 1.01 }}
               whileTap={{ scale: 0.98 }}
-              className="flex items-center justify-center gap-3 p-4 rounded-2xl border border-dashed border-border hover:border-accent-warm/40 bg-surface text-text-muted hover:text-text transition-all duration-300 group"
+              className="flex items-center justify-between p-4 rounded-2xl border border-dashed border-border hover:border-accent-warm/40 bg-surface text-text-muted hover:text-text transition-all duration-300 group"
             >
-              <div className="w-10 h-10 rounded-xl bg-accent-warm/10 border border-accent-warm/20 flex items-center justify-center">
-                <Download size={18} className="text-accent-warm" />
+              <div className="flex items-center gap-3">
+                <div className="w-10 h-10 rounded-xl bg-accent-warm/10 border border-accent-warm/20 flex items-center justify-center">
+                  <Download size={18} className="text-accent-warm" />
+                </div>
+                <div className="text-left">
+                  <p className="text-sm font-semibold text-text">Curriculum Vitae (CV)</p>
+                  <p className="text-xs text-text-muted">
+                    Available upon request &bull; Click to email
+                  </p>
+                </div>
               </div>
-              <div className="text-left">
-                <p className="text-sm font-semibold">Download CV</p>
-                <p className="text-xs text-text-muted">
-                  [SLOT_DOKUMEN_CV_PDF]
-                </p>
-              </div>
+              <span className="text-xs text-accent-warm font-medium opacity-0 group-hover:opacity-100 transition-opacity duration-300 pr-2">
+                Request &rarr;
+              </span>
             </motion.a>
           </motion.div>
         </div>

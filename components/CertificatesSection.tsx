@@ -157,16 +157,15 @@ export default function CertificatesSection() {
         </motion.div>
 
         {/* Certificates Grid */}
-        <motion.div layout className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          <AnimatePresence>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <AnimatePresence mode="popLayout">
             {filteredCertificates.map((cert) => (
               <motion.div
-                layout
                 key={cert.title}
                 initial={{ opacity: 0, scale: 0.95 }}
                 animate={{ opacity: 1, scale: 1 }}
-                exit={{ opacity: 0, scale: 0.95 }}
-                transition={{ duration: 0.35 }}
+                exit={{ opacity: 0, scale: 0.9 }}
+                transition={{ duration: 0.3 }}
                 className="card group flex flex-col overflow-hidden"
               >
                 {/* Image slot */}
@@ -182,6 +181,7 @@ export default function CertificatesSection() {
                       src={cert.imageSlot}
                       alt={cert.title}
                       fill
+                      sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                       className="object-cover object-top group-hover:scale-105 transition-transform duration-500"
                     />
                   ) : (
@@ -229,7 +229,7 @@ export default function CertificatesSection() {
               </motion.div>
             ))}
           </AnimatePresence>
-        </motion.div>
+        </div>
       </div>
     </section>
   );

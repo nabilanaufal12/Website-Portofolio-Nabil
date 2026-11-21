@@ -20,19 +20,32 @@ const experiences = [
   },
   {
     id: 2,
-    role: "Autonomous Systems Lead & Competition Participant",
-    company: "Kontes Kapal Indonesia (KKI) 2025 — Navantara UMRAH",
-    period: "2025",
+    role: "Executive Committee & Public Relations",
+    company: "Komunitas Generasi Baru Indonesia (GenBI) Kepri — Komsat UMRAH",
+    period: "2026 — Present",
     description:
-      "Represented UMRAH in the national Kontes Kapal Indonesia, a competition organized by Balai Pengembangan Talenta Indonesia (BPTI) under Kemendikbudristek. Served as the lead programmer for the Autonomous Surface Vessel (ASV) Navantara.",
+      "Active member of the Bank Indonesia scholarship recipient community (GenBI), driving social empowerment initiatives, institutional media development, and event secretariats.",
     achievements: [
-      "Implemented Python-based autonomous navigation backend with computer vision-driven obstacle detection.",
-      "Achieved Juara Harapan 1 (National Level) at KKI 2025.",
+      "Appointed as Sekretaris Pelaksana for 'Revitalisasi Rumah Pintar (RUMPI) Tahap 1', managing full administrative workflows, official certifications, and stakeholder communications.",
+      "Served on the Public Relations & Media team for the GenBI Profile Video and committee for major student initiatives including GENCAST, Kuliah Umum, and GEMA.",
     ],
     icon: Award,
   },
   {
     id: 3,
+    role: "Autonomous Systems Lead & Competition Finalist",
+    company: "Kontes Kapal Indonesia (KKI) — Navantara UMRAH",
+    period: "2025 — 2026",
+    description:
+      "Represented UMRAH in the national Kontes Kapal Indonesia organized by Balai Pengembangan Talenta Indonesia (BPTI / Kemendikbudristek). Served as lead programmer for the Autonomous Surface Vessel (ASV) team.",
+    achievements: [
+      "Finalis Nasional Kategori Autonomous Surface Vessel (ASV) KKI 2026 di Politeknik Negeri Bengkalis.",
+      "Juara Harapan 1 Tingkat Nasional KKI 2025 dengan sistem navigasi otomatis berbasis computer vision.",
+    ],
+    icon: Award,
+  },
+  {
+    id: 4,
     role: "Core IT Team & 3D Modeler",
     company: "ARSULA Project (Community Service)",
     period: "2026",

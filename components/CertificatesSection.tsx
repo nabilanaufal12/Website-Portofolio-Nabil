@@ -14,11 +14,11 @@ interface Certificate {
 
 const certificates: Certificate[] = [
   {
-    title: "Kontes Kapal Indonesia (KKI) 2025 — ASV",
-    issuer: "Universitas Maritim Raja Ali Haji (UMRAH)",
-    date: "2025",
-    imageSlot: "/sertifikat-kki25-asv.jpg",
-    url: "/sertifikat-kki25-asv.jpg",
+    title: "Kontes Kapal Indonesia (KKI) 2026 — Finalis Nasional ASV",
+    issuer: "BPTI / Kemendikbudristek & Polbeng",
+    date: "Sep 2026",
+    imageSlot: "/sertifikat-kki26-finalis-asv.png",
+    url: "/sertifikat-kki26-finalis-asv.png",
   },
   {
     title: "Astra Honda Motor Best Student (AHMBS) — 2nd Place Regional",
@@ -35,11 +35,25 @@ const certificates: Certificate[] = [
     url: "/sertifikat-ahmbs-grandfinalis.jpeg",
   },
   {
-    title: "Sertifikat KKI — Kompetisi Kapal Indonesia",
-    issuer: "BPTI / Kemendikbudristek",
+    title: "Kontes Kapal Indonesia (KKI) 2025 — Tim Navantara ASV",
+    issuer: "Universitas Maritim Raja Ali Haji (UMRAH)",
     date: "2025",
-    imageSlot: "/sertifikat-kki.png",
-    url: "/sertifikat-kki.png",
+    imageSlot: "/sertifikat-kki25-asv.jpg",
+    url: "/sertifikat-kki25-asv.jpg",
+  },
+  {
+    title: "Revitalisasi Rumah Pintar (RUMPI) Tahap 1 — Sekretaris Pelaksana",
+    issuer: "Bank Indonesia & GenBI Kepri Komsat UMRAH",
+    date: "Sep 2026",
+    imageSlot: "/sertifikat-genbi-rumpi-sekretaris.png",
+    url: "/sertifikat-genbi-rumpi-sekretaris.png",
+  },
+  {
+    title: "Video Profil GenBI Kepri — Anggota Humas",
+    issuer: "Bank Indonesia & GenBI Kepri Komsat UMRAH",
+    date: "Okt 2026",
+    imageSlot: "/sertifikat-genbi-video-profil-humas.png",
+    url: "/sertifikat-genbi-video-profil-humas.png",
   },
 ];
 

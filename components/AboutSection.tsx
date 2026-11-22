@@ -69,7 +69,6 @@ export default function AboutSection() {
                   fill
                   sizes="(max-width: 768px) 100vw, 448px"
                   className="object-cover object-center"
-                  priority
                 />
               </div>
             </div>

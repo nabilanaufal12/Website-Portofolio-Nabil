@@ -1,29 +1,27 @@
 # Website Portofolio — Nabil
 
-Personal portfolio website built with **Next.js 15**, **TypeScript**, and **Tailwind CSS**.
-
-**Live:** _(coming soon / add your Vercel link here)_
+Personal portfolio website built with **Next.js**, **TypeScript**, and **Tailwind CSS**. Designed with an editorial studio aesthetic featuring yellow and charcoal accents.
 
 ---
 
 ## Stack
 
-- **Framework**: Next.js 15 (App Router)
+- **Framework**: Next.js (App Router, Turbopack)
 - **Language**: TypeScript
-- **Styling**: Tailwind CSS v4 + Custom CSS Variables (Light / Dark mode)
+- **Styling**: Tailwind CSS v4 + Studio Yellow / Charcoal theme
 - **Animations**: Framer Motion
 - **Icons**: Lucide React
-- **Fonts**: Plus Jakarta Sans, Lora, Roboto Mono (Google Fonts)
+- **Fonts**: Plus Jakarta Sans, Lora, Roboto Mono
 
 ## Sections
 
-- **Hero** — Name, role, availability badge, profile photo with floating info cards
-- **About** — Background, GPA, university, OS, and focus areas
-- **Projects** — Featured projects: Navantara ASV, Temu UMRAH, Smart KJA, GeoMath WebAR, Merayau Benan
-- **Skills** — Technical skills categorized: Web Dev, Robotics & AI, Embedded & Mobile, Tools
-- **Experience** — Timeline of roles at UKM Robotika UMRAH and KKI competition
-- **Certificates** — KKI 2025, AHM Best Student (Juara 2 & Grand Finalist)
-- **Contact** — Email and social links
+- **Hero** — Bold editorial title, role, availability badge, profile photo with yellow backdrop
+- **About** — Educational background, GPA (3.85), key roles, and quick collaboration card
+- **Projects** — Featured works: Navantara ASV, Temu UMRAH, Smart KJA, GeoMath WebAR, Merayau Benan
+- **Skills** — Technical stack: Web Development, Robotics & AI, Embedded & Mobile, Tools
+- **Experience** — Timeline of leadership roles at UKM Robotika UMRAH and GenBI Kepri
+- **Certificates** — 10 verified credentials (KKI 2026 & 2025, AHMBS Regional & National, GenBI series) with interactive category filters
+- **Contact** — Direct mailto form, CV request, and verified social links
 
 ## Running Locally
 

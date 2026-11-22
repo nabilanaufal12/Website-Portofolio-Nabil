@@ -101,7 +101,7 @@ export default function Navbar() {
 
           {/* CTA + Theme Toggle + Mobile Toggle */}
           <div className="flex items-center gap-3">
-            {mounted && (
+            {mounted ? (
               <button
                 onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
                 className="p-2.5 text-text-muted hover:text-text transition-colors duration-300 rounded-lg hover:bg-surface-alt"
@@ -109,6 +109,8 @@ export default function Navbar() {
               >
                 {theme === "dark" ? <Sun size={18} /> : <Moon size={18} />}
               </button>
+            ) : (
+              <div className="w-[38px] h-[38px]" />
             )}
             <a
               href="#contact"

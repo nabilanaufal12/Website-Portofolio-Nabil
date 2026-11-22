@@ -173,7 +173,12 @@ export default function CertificatesSection() {
                 className="card group flex flex-col overflow-hidden"
               >
                 {/* Image slot */}
-                <div className="relative aspect-[4/3] bg-surface-alt overflow-hidden">
+                <a
+                  href={cert.url || "#"}
+                  target={cert.url ? "_blank" : undefined}
+                  rel={cert.url ? "noopener noreferrer" : undefined}
+                  className="relative aspect-[4/3] bg-surface-alt overflow-hidden cursor-pointer block"
+                >
                   {/* Badge */}
                   <div className="absolute top-3 left-3 z-10 flex items-center justify-center w-8 h-8 rounded-full bg-accent border border-primary shadow-sm">
                     <Award size={14} className="text-black" />
@@ -198,7 +203,7 @@ export default function CertificatesSection() {
 
                   {/* Hover overlay */}
                   <div className="absolute inset-0 bg-gradient-to-t from-surface/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                </div>
+                </a>
 
                 {/* Content */}
                 <div className="flex flex-col flex-1 p-5 gap-4">

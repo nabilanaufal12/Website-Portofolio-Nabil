@@ -63,12 +63,20 @@ export default function ProjectCard({
 
         {/* Image or placeholder */}
         {imageSlot && !imageSlot.startsWith("[") ? (
-          <Image
-            src={imageSlot}
-            alt={title}
-            fill
-            className="object-cover object-center group-hover:scale-105 transition-transform duration-500"
-          />
+          <a
+            href={githubUrl || liveUrl || "#"}
+            target={githubUrl || liveUrl ? "_blank" : undefined}
+            rel={githubUrl || liveUrl ? "noopener noreferrer" : undefined}
+            className="block w-full h-full relative"
+          >
+            <Image
+              src={imageSlot}
+              alt={title}
+              fill
+              sizes="(max-width: 768px) 100vw, 50vw"
+              className="object-cover object-center group-hover:scale-105 transition-transform duration-500"
+            />
+          </a>
         ) : (
           <div className="absolute inset-0 flex items-center justify-center flex-col gap-3">
             <div className="w-14 h-14 rounded-2xl bg-border/30 flex items-center justify-center group-hover:bg-border/50 transition-colors duration-300">
